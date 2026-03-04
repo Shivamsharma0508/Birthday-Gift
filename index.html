@@ -352,7 +352,10 @@ document.getElementById("party").appendChild(e);
 
 }
 
+let tapcount = 0;
 function pop(){
+
+tapCount++;
 
 navigator.vibrate([100,50,200,50,300]);
 
@@ -385,8 +388,7 @@ setTimeout(()=>{
 e.style.left=Math.random()*100+"%";
 e.style.top=Math.random()*100+"%";
 e.style.opacity="0";
-e.style.transform=
-`translate(-50%, -50%) rotate(${Math.random()*720}deg) scale(1.5)`;
+e.style.transform=`translate(-50%, -50%) rotate(${Math.random()*720}deg) scale(1.5)`;
 },30);
 
 /* remove after animation */
@@ -396,9 +398,12 @@ e.remove();
 
 }
 
-/* move to love section */
-setTimeout(loveSection,4200);
+/* move to love section after 2 taps */
+if(tapCount >= 2){
+setTimeout(loveSection,1200);
 }
+}
+                                
 function loveSection(){
 
 let slides=[
