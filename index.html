@@ -147,13 +147,21 @@ document.getElementById("app").innerHTML=
 <button onclick="next()">Next</button>`;
 
 window.next=function(){
+
+let btn=document.querySelector("button");
+btn.disabled=true;
+
 i++;
+
 if(i<photos.length){
 document.getElementById("slide").src=photos[i];
 }else{
 cake();
 }
-}
+
+setTimeout(()=>{
+btn.disabled=false;
+},800);
 }
 
 function cake(){
